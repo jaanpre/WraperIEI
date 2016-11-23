@@ -13,10 +13,10 @@
          <children>
             <TableView fx:id="moviles" prefHeight="334.0" prefWidth="500.0">
               <columns>
-                <TableColumn fx:id="vendedor" prefWidth="75.0" text="Vendedor" />
-                <TableColumn fx:id="modelo" prefWidth="75.0" text="Modelo" />
-                  <TableColumn fx:id="disponibilidad" prefWidth="75.0" text="Disponibilidad" />
-                  <TableColumn fx:id="precio" prefWidth="75.0" text="Precio" />
+                <TableColumn fx:id="vendedor" minWidth="-1.0" prefWidth="-1.0" text="Vendedor" />
+                <TableColumn fx:id="modelo" prefWidth="-1.0" text="Modelo" />
+                  <TableColumn fx:id="disponibilidad" prefWidth="-1.0" text="Disponibilidad" />
+                  <TableColumn fx:id="precio" prefWidth="-1.0" text="Precio" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
