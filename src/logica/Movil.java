@@ -3,14 +3,15 @@ package logica;
 public class Movil {
 	private String vendedor;
 	private String modelo;
-	private String precio;
+	private String precio1;
+	private String precio2;
+
 	private String disponibilidad;
 	
 	public Movil(String vendedor, String modelo, String precio, String disponibilidad) {
-		super();
 		this.vendedor = vendedor;
 		this.modelo = modelo;
-		this.precio = precio;
+		this.precio1 = precio;
 		this.disponibilidad = disponibilidad;
 	}
 	public String getVendedor() {
@@ -26,10 +27,10 @@ public class Movil {
 		this.modelo = modelo;
 	}
 	public String getPrecio() {
-		return precio;
+		return precio1;
 	}
 	public void setPrecio(String precio) {
-		this.precio = precio;
+		this.precio1 = precio;
 	}
 	public String getDisponibilidad() {
 		return disponibilidad;
@@ -37,5 +38,10 @@ public class Movil {
 	public void setDisponibilidad(String disponibilidad) {
 		this.disponibilidad = disponibilidad;
 	}
-	
+	public String getPrecio2() {
+		return precio2;
+	}
+	public void setPrecio2(String precio2) {
+		this.precio2 = precio2;
+	}
 }

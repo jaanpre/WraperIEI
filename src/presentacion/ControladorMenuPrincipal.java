@@ -6,6 +6,8 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
@@ -17,30 +19,39 @@ public class ControladorMenuPrincipal {
 	@FXML
 	private CheckBox pccomp;
 	@FXML
-	private CheckBox otro;
+	private CheckBox fnac;
 	private static final String LISTAR_MOVILES = "Resultados.fxml";
-	private Stage primaryStage; 
+	private Stage primaryStage;
 	private WrapperIEI w = WrapperIEI.getInstance();
-	
-	private List<String> listaMoviles = Arrays.asList("Alcatel","Acer","LG","Apple","Asus","BQ","HTC","Huawei","Lenovo","Meizu","Motorola","Nokia","Oneplus","Oppo","Samsung","Sony","Wiko","Xiaomi","ZTE","Honor");
-	
+
+	private List<String> listaMoviles = Arrays.asList("Samsung", "Lg", "Sony", "Huawei", "Motorola", "Apple",
+			"OnePlus", "Lenovo");
+
 	@FXML
-	void buscar(ActionEvent event){ 
-		if(pccomp.isSelected()){
+	void buscar(ActionEvent event) {
+		if (marcas.getValue() != null) {
 			w.setMarca(marcas.getValue());
+			w.setBools(pccomp.isSelected(), fnac.isSelected());
 			initCU(LISTAR_MOVILES, ControladorListarMoviles.class).show();
+		} else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error Dialog");
+			alert.setHeaderText("Look, an Error Dialog");
+			alert.setContentText("Ooops, there was an error!");
+
+			alert.showAndWait();
 		}
-		else if(otro.isSelected())initCU(LISTAR_MOVILES, ControladorListarMoviles.class).show();
-		else initCU(LISTAR_MOVILES, ControladorListarMoviles.class).show();
 	}
-	
-	public void initialize(){
+
+	public void initialize() {
 		marcas.setItems(FXCollections.observableArrayList(listaMoviles));
 	}
+
 	public void setPrimaryStage(Stage primaryStage) {
-		this.primaryStage = primaryStage; 
+		this.primaryStage = primaryStage;
 	}
+
 	private <T extends ControladorCU> T initCU(String urlVista, Class<T> controlClass) {
-		return ControladorCU.initCU(urlVista, controlClass, primaryStage, ControladorMenuPrincipal.this); 
-		} 
+		return ControladorCU.initCU(urlVista, controlClass, primaryStage, ControladorMenuPrincipal.this);
+	}
 }

@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 
 
@@ -20,6 +21,7 @@ public class WrapperIEIApp extends Application {
 	public void start(Stage primaryStage){
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Comparador móvil");
+		this.primaryStage.getIcons().add(new Image("file:data/icono.png"));
 		initRootLayout();
 	}
 
